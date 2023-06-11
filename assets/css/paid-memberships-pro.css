@@ -63,6 +63,7 @@ a.pmpro_btn {
 	border: none;
 	border-radius: var(--wp--custom--border--radius);
 	box-sizing: border-box;
+	color: var(--wp--preset--color--contrast);
 	cursor: pointer;
 	display: inline-block;
 	font-family: var(--wp--custom--heading--font-family);
@@ -77,6 +78,7 @@ a.pmpro_btn {
 
 .pmpro_btn:hover {
 	background-color: var(--wp--preset--color--grey-3);
+	color: var(--wp--preset--color--contrast);
 }
 
 .pmpro_btn-submit,
@@ -90,6 +92,7 @@ a.pmpro_btn-select {
 .pmpro_btn-submit:hover,
 .pmpro_btn-select:hover {
 	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--base);		
 }
 
 .pmpro_actions_nav {
