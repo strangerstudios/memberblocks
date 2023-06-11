@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"title": "Education",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"color": "#F4EFEA",
+					"name": "Base",
+					"slug": "base"
+				},
+				{
+					"color": "#222222",
+					"name": "Contrast",
+					"slug": "contrast"
+				},
+				{
+					"color": "#354458",
+					"name": "Primary",
+					"slug": "primary"
+				},
+				{
+					"color": "#EB7260",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+				{
+					"color": "#29ABA4",
+					"name": "Tertiary",
+					"slug": "tertiary"
+				}
+			]
+		}
+	}
+}

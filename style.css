@@ -1,0 +1,41 @@
+/*
+Theme Name: MemberBlocks
+Theme URI: https://wordpress.org/themes/memberblocks
+Author: Stranger Studios
+Author URI: https://www.strangerstudios.com
+Description: MemberBlocks is
+Requires at least: 6.1
+Tested up to: 6.2
+Requires PHP: 5.6
+Version: 1.1
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+Text Domain: memberblocks
+Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready, wide-blocks, block-styles, accessibility-ready, blog, portfolio, news
+*/
+
+/* 
+ * Styles for Author blocks
+ */
+
+.wp-block-post-author__byline,
+.wp-block-post-author__name {
+	display: inline;
+}
+	
+.single .wp-block-post-author__byline,
+.single .wp-block-post-author__name {
+	font-weight: 700;
+}
+
+.wp-block-post-author__name,
+.wp-block-post-author__byline,
+.wp-block-post-author__bio,
+.wp-block-post-excerpt__excerpt {
+	line-height: inherit;
+}
+
+.wp-block-post-author__byline,
+.wp-block-post-author__bio {
+	font-size: inherit;
+}

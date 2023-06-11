@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"title": "Raspberry Lime",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"color": "#F0F1EE",
+					"name": "Base",
+					"slug": "base"
+				},
+				{
+					"color": "#222222",
+					"name": "Contrast",
+					"slug": "contrast"
+				},
+				{
+					"color": "#AA2159",
+					"name": "Primary",
+					"slug": "primary"
+				},
+				{
+					"color": "#009D97",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+				{
+					"color": "#BCC747",
+					"name": "Tertiary",
+					"slug": "tertiary"
+				}
+			]
+		}
+	}
+}
