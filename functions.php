@@ -8,56 +8,129 @@
  * @since MemberBlocks 1.0
  */
 
+/**
+ * Constants.
+ */
+define( 'MEMBERBLOCKS_THEME_VERSION', ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) || ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? (string) time() : (string) wp_get_theme( get_template() )->get( 'Version' ) );
+define( 'MEMBERBLOCKS_THEME_DIR', trailingslashit( get_template_directory() ) );
+define( 'MEMBERBLOCKS_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 
-if ( ! function_exists( 'memberblocks_support' ) ) :
+/**
+ * Sets up theme defaults and registers support for various WordPress features.
+ *
+ * @since MemberBlocks 1.0
+ *
+ * @return void
+ */
+function memberblocks_support() {
 
-	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * @since MemberBlocks 1.0
-	 *
-	 * @return void
-	 */
-	function memberblocks_support() {
+	// Enqueue editor styles.
+	add_editor_style( 'style.css' );
 
-		// Enqueue editor styles.
-		add_editor_style( 'style.css' );
+	// Make theme available for translation.
+	load_theme_textdomain( 'memberblocks' );
 
-		// Make theme available for translation.
-		load_theme_textdomain( 'memberblocks' );
-	}
-
-endif;
-
+	// Set up block styles support.
+	add_theme_support( 'wp-block-styles' );
+}
 add_action( 'after_setup_theme', 'memberblocks_support' );
 
-if ( ! function_exists( 'memberblocks_styles' ) ) :
+/**
+ * Enqueue styles.
+ *
+ * @since Hey 1.0
+ *
+ * @return void
+ */
+function memberblocks_styles() {
 
-	/**
-	 * Enqueue styles.
-	 *
-	 * @since Hey 1.0
-	 *
-	 * @return void
-	 */
-	function memberblocks_styles() {
+	// Register theme stylesheet.
+	wp_register_style(
+		'memberblocks-style',
+		get_stylesheet_directory_uri() . '/style.css',
+		[],
+		MEMBERBLOCKS_THEME_VERSION
+	);
 
-		// Register theme stylesheet.
-		wp_register_style(
-			'memberblocks-style',
-			get_stylesheet_directory_uri() . '/style.css',
-			array(),
-			wp_get_theme()->get( 'Version' )
-		);
+	// Enqueue theme stylesheet.
+	wp_enqueue_style( 'memberblocks-style' );
 
-		// Enqueue theme stylesheet.
-		wp_enqueue_style( 'memberblocks-style' );
+	// Register inline styles.
+	wp_add_inline_style(
+		'memberblocks-style',
+		memberblocks_get_custom_properties()
+	);
+}
+add_action( 'wp_enqueue_scripts', 'memberblocks_styles' );
 
+/**
+ * Generate custom properties from global styles.
+ *
+ * @since 1.0.0
+ *
+ * @return string
+ */
+function memberblocks_get_custom_properties(): string {
+	$custom_properties  = [];
+	$global_styles      = wp_get_global_styles();
+	$body_color         = $global_styles['color'] ?? [];
+	$body_typography    = $global_styles['typography'] ?? [];
+	$heading_color      = $global_styles['elements']['heading']['color'] ?? [];
+	$heading_typography = $global_styles['elements']['heading']['typography'] ?? [];
+
+	if ( $body_color ) {
+		foreach ( $body_color as $key => $value ) {
+			$custom_properties[ "--wp--custom--body--color--$key" ] = $value;
+		}
 	}
 
-endif;
+	if ( $body_typography ) {
+		foreach ( $body_typography as $key => $value ) {
+			$property = strtolower( implode( '-', preg_split( '/(?=[A-Z])/', $key ) ) );
+			if ( is_string( $value ) && is_string( $property ) && str_contains( $value, "var:preset|{$property}|" ) ) {
+				$index_to_splice = strrpos( $value, '|' ) + 1;
+				$value = "var(--wp--preset--font-family--" . substr( $value, $index_to_splice ) . ")";
+			}
 
-add_action( 'wp_enqueue_scripts', 'memberblocks_styles' );
+			$custom_properties[ "--wp--custom--body--$property" ] = $value;
+		}
+	}
+
+	if ( $heading_color ) {
+		foreach ( $heading_color as $key => $value ) {
+			$custom_properties[ "--wp--custom--heading--color--$key" ] = $value;
+		}
+	}
+
+	if ( $heading_typography ) {
+		foreach ( $heading_typography as $key => $value ) {
+			$property = strtolower( implode( '-', preg_split( '/(?=[A-Z])/', $key ) ) );
+			if ( is_string( $value ) && is_string( $property ) && str_contains( $value, "var:preset|{$property}|" ) ) {
+				$index_to_splice = strrpos( $value, '|' ) + 1;
+				$value = "var(--wp--preset--font-family--" . substr( $value, $index_to_splice ) . ")";
+			}
+
+			$custom_properties[ "--wp--custom--heading--$property" ] = $value;
+		}
+	}
+
+	if ( $custom_properties ) {
+		$css = array_map(
+			static fn( string $value, string $property ): string => "$property:$value;",
+			$custom_properties,
+			array_keys( $custom_properties )
+		);
+
+		return 'body{' . implode( '', $css ) . '}';
+	}
+
+	return '';
+}
+
+/**
+ * Compatibility.
+ */
+require_once MEMBERBLOCKS_THEME_DIR . 'inc/compatibility/paid-memberships-pro.php';
 
 /**
  * Customize the bbp_breadcrumb output.

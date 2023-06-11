@@ -7,12 +7,66 @@ Description: MemberBlocks is
 Requires at least: 6.1
 Tested up to: 6.2
 Requires PHP: 5.6
-Version: 1.1
+Version: 1.0
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 Text Domain: memberblocks
 Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready, wide-blocks, block-styles, accessibility-ready, blog, portfolio, news
 */
+
+table {
+    border-collapse: collapse;
+    border-color: inherit;
+    text-indent: 0
+}
+
+
+/*
+ * Styles for Form Elements
+ */
+textarea {
+	resize: vertical;
+}
+
+input,
+select,
+textarea {
+	background-color: var(--wp--preset--color--base);
+	border: 1px solid var(--wp--preset--color--grey-3);
+	border-radius: calc( var(--wp--custom--border--radius) / 2 );
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,.05),0 1px 2px 0 rgba(0,0,0,.08);
+	color: var(--wp--preset--color--contrast);
+	font-family: inherit;
+	font-size: 100%;
+	font-weight: inherit;
+	line-height: 1.25;
+	margin: 0;
+	padding: calc( var(--wp--preset--spacing--10) / 2 );
+}
+
+input:focus,
+optgroup:focus,
+select:focus,
+textarea:focus {
+	box-shadow: 0 0 0 3px rgba(66,153,225,.5);
+	outline: 2px solid transparent;
+	outline-offset: 2px;
+}
+
+input[type="button"],
+input[type="email"],
+input[type="search"],
+input[type="submit"],
+input[type="text"],
+textarea {
+	-webkit-appearance: none;
+}
+
+::placeholder {
+	color: var(--wp--preset--color--contrast);
+	font-size: var(--wp--preset--font-size--14);
+	opacity: 0.5;
+}
 
 /* 
  * Styles for Author blocks

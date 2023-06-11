@@ -18,15 +18,11 @@
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph -->
-			<p>
-			<?php echo esc_html_e( 'MemberBlocks is a groundbreaking block theme designed exclusively for membership sites, harnessing the full potential of the WordPress site editor while offering extensive customization options.', 'memberblocks' ); ?>
-			</p>
+			<p><?php echo esc_html_e( 'MemberBlocks is a groundbreaking block theme designed exclusively for membership sites, harnessing the full potential of the WordPress site editor while offering extensive customization options.', 'memberblocks' ); ?></p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph -->
-			<p>
-				<?php echo esc_html_e( 'It provides an intuitive and deeply customizable platform, enabling site owners to effortlessly create and manage their unique membership-based websites.', 'memberblocks' ); ?>
-			</p>
+			<p><?php echo esc_html_e( 'It provides an intuitive and deeply customizable platform, enabling site owners to effortlessly create and manage their unique membership-based websites.', 'memberblocks' ); ?></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:column -->
