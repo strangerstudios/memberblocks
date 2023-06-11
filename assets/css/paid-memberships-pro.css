@@ -1,38 +1,150 @@
+/**
+ * General Styles
+ */
+.pmpro_hidden {
+	display: none;
+}
+
+.pmpro_submit {
+	margin: var(--wp--preset--spacing--30) 0;
+}
+
+.lite {
+	opacity: 0.6;
+}
+
+form p.lite {
+	font-size: var(--wp--preset--font-size--14);
+	margin: calc( var(--wp--preset--spacing--10) / 2 ) 0;
+}
+
+.pmpro_message {
+	background-color: #EBF5FF;
+	border-radius: var(--wp--custom--border--radius);
+	color: #1E429F;
+	margin: var(--wp--preset--spacing--30) 0;
+	padding: calc( var(--wp--preset--spacing--20) / 2 ) var(--wp--preset--spacing--20);
+}
+
+.pmpro_message a {
+	color: #1E429F;
+}
+
+.pmpro_error {
+	background-color: #FDF2F2;
+	color: #9B1C1C;
+}
+
+.pmpro_error a {
+	color: #9B1C1C;
+}
+
+.pmpro_success {
+	background-color: #F3FAF7;
+	color: #03543F;
+}
+
+.pmpro_success a {
+	color: #03543F;
+}
+
+.pmpro_alert {
+	background-color: #FDFDEA;
+	color: #723B13;
+}
+
+.pmpro_alert a {
+	color: #723B13;
+}
+
+.pmpro_btn,
+a.pmpro_btn {
+	background-color: var(--wp--preset--color--grey-2);
+	border: none;
+	border-radius: var(--wp--custom--border--radius);
+	box-sizing: border-box;
+	cursor: pointer;
+	display: inline-block;
+	font-family: var(--wp--custom--heading--font-family);
+	font-size: var(--wp--preset--font-size--18);
+	font-weight: var(--wp--custom--heading--font-weight);
+	padding: calc( var(--wp--preset--spacing--10) / 2) var(--wp--preset--spacing--10);
+	text-align: center;
+	text-decoration: none;
+	transition: background-color 0.25s ease-in-out;
+	word-break: break-word;
+}
+
+.pmpro_btn:hover {
+	background-color: var(--wp--preset--color--grey-3);
+}
+
+.pmpro_btn-submit,
+a.pmpro_btn-submit
+.pmpro_btn-select,
+a.pmpro_btn-select {
+	background-color: var(--wp--preset--color--tertiary);
+	color: var(--wp--preset--color--base);		
+}
+
+.pmpro_btn-submit:hover,
+.pmpro_btn-select:hover {
+	background-color: var(--wp--preset--color--primary);
+}
+
+.pmpro_actions_nav {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: var(--wp--preset--spacing--20);
+	margin: var(--wp--preset--spacing--30) 0;
+}
+.pmpro_actions_nav-left {
+	order: 1;
+	text-align: left;
+}
+.pmpro_actions_nav-right {
+	order: 2;
+	text-align: right;
+}
 
 /* Membership Levels and Advanced Levels Page Shortcode */
+body.pmpro-levels #nav-below {
+	clear: both;
+	margin: var(--wp--preset--spacing--30) var(--wp--preset--spacing--10);
+}
+
 #pmpro_levels {
-	margin-top: 2rem;
-	margin-bottom: 2rem;
+	margin: var(--wp--preset--spacing--30) 0;
 }
-#pmpro_levels .medium-4,
-#pmpro_levels .medium-3 {
-	text-align: center;
-}
-.pmpro_advanced_levels-div .pmpro_level .post {
+
+#pmpro_levels.pmpro_advanced_levels-div .post {
 	background-color: var(--wp--preset--color--base);
-	border: 1px solid var(--wp--preset--color--grey-1);
+	border: 1px solid var(--wp--preset--color--grey-2);
 	border-radius: var(--wp--custom--border--radius);
 	box-shadow: var(--wp--custom--shadow);
 	color: var(--wp--preset--color--contrast);
-	margin: var(--wp--preset--spacing--20);
+	margin: var(--wp--preset--spacing--10);
+	padding: var(--wp--preset--spacing--20);
 }
 
-#pmpro_levels .post h2,
-.memberlite_signup h2,
-.pmpro_signup_form h2 {
+#pmpro_levels.pmpro_advanced_levels-div .medium-4,
+#pmpro_levels.pmpro_advanced_levels-div .medium-3 {
+	text-align: center;
+}
+
+#pmpro_levels .post h2 {
 	color: var(--wp--preset--color--primary);
 	margin: 0;
 }
+
 #pmpro_levels .medium-4 .pmpro_btn,
 #pmpro_levels .medium-3 .pmpro_btn,
-.pmpro_levels-table .pmpro_btn,
+#pmpro_levels_table .pmpro_btn,
 .pmpro_advanced_levels-compare_table .pmpro_btn,
 .pmpro_advanced_levels-compare_table_responsive .pmpro_btn {
 	display: block;
 }
-#primary #pmpro_levels .entry-footer .pmpro_btn {
-	color: var(--memberlite-color-white);
-}
+
 #pmpro_levels.pmpro_levels-table.pmpro_level-highlight,
 #pmpro_levels.pmpro_levels-div .pmpro_level-highlight,
 #pmpro_levels.pmpro_levels-2col .pmpro_level-highlight,
@@ -40,30 +152,50 @@
 #pmpro_levels.pmpro_levels-4col .pmpro_level-highlight,
 .memberlite_signup,
 .pmpro_signup_form {
-	padding: 1rem;
-	background-color: var(--memberlite-color-white);
 	z-index: 100;
-	border-top: .5rem solid var(--memberlite-color-secondary);
-	border-bottom: 1.5rem solid var(--memberlite-color-secondary);
-	border-left: 1px solid var(--memberlite-color-borders);
-	border-right: 1px solid var(--memberlite-color-borders);
+	border-top: var(--wp--preset--spacing--10) solid var(--wp--preset--color--secondary);
+	border-bottom: var(--wp--preset--spacing--20) solid var(--wp--preset--color--secondary);
 }
+
 #pmpro_levels.pmpro_levels-2col .pmpro_level-highlight,
 #pmpro_levels.pmpro_levels-3col .pmpro_level-highlight,
 #pmpro_levels.pmpro_levels-4col .pmpro_level-highlight {
 	margin-top: var(--wp--preset--spacing--10) - calc( var(--wp--preset--spacing--10) * 2);
 }
 
-#pmpro_levels_table td,
-#pmpro_levels.pmpro_levels-table td {
-	vertical-align: middle;
-}
-
 #pmpro_levels.pmpro_levels-table .pmpro_level-highlight td:first-child {
-	border-left: 15px solid var(--memberlite-color-secondary);
+	border-left: var(--wp--preset--spacing--10) solid var(--wp--preset--color--secondary);
 }
 #pmpro_levels.pmpro_levels-table .pmpro_level-highlight td:last-child {
-	border-right: 15px solid var(--memberlite-color-secondary);
+	border-right: var(--wp--preset--spacing--10) solid var(--wp--preset--color--secondary);
+}
+
+.pmpro_levels-3col .pmpro_level-price,
+.pmpro_levels-4col .pmpro_level-price {
+	font-family: var(--wp--custom--heading--font-family);
+	font-size: var(--wp--preset--font-size--30);
+	margin: 0;
+}
+
+.pmpro_levels-div .pmpro_btn-select,
+.pmpro_levels-2col .pmpro_btn-select {
+	margin-left: var(--wp--preset--spacing--20);
+}
+
+.pmpro_levels-div .pmpro_level-expiration {
+	color: var(--wp--preset--color--grey-3);
+}
+
+.pmpro_levels-div .pmpro_level-price,
+.pmpro_levels-2col .pmpro_level-price,
+.pmpro_levels-div .pmpro_level-expiration,
+.pmpro_levels-2col .pmpro_level-expiration {
+	display: inline;
+	margin: 0;
+}
+
+#pmpro_levels.pmpro_advanced_levels-div .entry-footer {
+	padding: 0;
 }
 
 #pmpro_levels.pmpro_advanced_levels-compare_table {
@@ -154,50 +286,14 @@
   z-index: -1;
 }
 
-.pmpro_levels-3col .pmpro_level-price,
-.pmpro_levels-4col .pmpro_level-price {
-	font-size: 24px; font-size: 2.4rem;
-}
-.pmpro_levels-3col .pmpro_level-subprice,
-.pmpro_levels-4col .pmpro_level-subprice {
-	display: block;
-	font-size: 14px;
-	font-size: 1.4rem;
-	line-height: 2rem;
-}
-.pmpro_levels-3col .pmpro_level-trialprice,
-.pmpro_levels-4col .pmpro_level-trialprice {
-	display: block;
-	font-size: 14px;
-	font-size: 1.4rem;
-	line-height: 2rem;
-	margin: 1rem;
-}
-.pmpro_levels-div .pmpro_level-subprice,
-.pmpro_levels-table .pmpro_level-subprice { }
-.pmpro_levels-3col .pmpro_level-expiration,
-.pmpro_levels-4col .pmpro_level-expiration { }
-
-.pmpro_levels-div .pmpro_btn-select,
-.pmpro_levels-2col .pmpro_btn-select {
-	margin-left: 3rem;
-}
-.pmpro_levels-div .pmpro_level-price,
-.pmpro_levels-2col .pmpro_level-price,
-.pmpro_levels-div .pmpro_level-expiration,
-.pmpro_levels-2col .pmpro_level-expiration {
-	display: inline;
-	margin: 0;
-}
-.memberlite_signup-fixed {
-	position: fixed;
-	top: 0;
-}
-
 /* Special Fields */
 .pmpro_checkout-field-date select,
 .pmpro_checkout-field-date input {
-	margin-right: .9rem;
+	margin-right: calc( var(--wp--preset--spacing--10) / 2);
+}
+
+form.pmpro_form label input[type=checkbox] {
+	margin-right: calc( var(--wp--preset--spacing--10) / 2);
 }
 
 /* Membership Checkout */
@@ -208,50 +304,45 @@
 	border: none;
 	text-decoration: none;
 }
-form.pmpro_form p {
-	margin-bottom: 1.45rem;
-}
 form.pmpro_form hr {
-	margin: 0 0 2.9rem 0;
+	display: none;
 }
 form.pmpro_form .input {
 	max-width: 90%;
 }
 form.pmpro_form textarea {
-	width:90%;
+	width: 90%;
 }
-form.pmpro_form label,
-#loginform label {
-	font-weight: 400;
+form.pmpro_form .pmpro_checkout {
+	background-color: var(--wp--preset--color--base);
+	border: 1px solid var(--wp--preset--color--grey-2);
+	border-radius: var(--wp--custom--border--radius);
+	box-shadow: var(--wp--custom--shadow);
+	color: var(--wp--preset--color--contrast);
+	margin: var(--wp--preset--spacing--30) 0;
+	padding: var(--wp--preset--spacing--20);
 }
 form#pmpro_form .pmpro_checkout h2,
 form#pmpro_form .pmpro_checkout h3 {
-	background-color: #FAFAFA;
-	border-top: 1px solid var(--memberlite-color-borders);
-	border-bottom: 1px solid var(--memberlite-color-borders);
-	font-size: 2.3rem;
-	line-height: 3.7rem;
-	padding: 1.45rem;
-}
-form#pmpro_form .pmpro_checkout h2 span.pmpro_checkout-h2-name,
-form#pmpro_form .pmpro_checkout h3 span.pmpro_checkout-h3-name {
-	font-weight: 700;
-	margin: 0;
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: var(--wp--preset--spacing--20);
 }
 form#pmpro_form .pmpro_checkout h2 span.pmpro_checkout-h2-msg,
 form#pmpro_form .pmpro_checkout h3 span.pmpro_checkout-h3-msg {
-	float: right;
+	font-weight: 400;
+	font-size: var(--wp--preset--font-size--16);
 }
-form#pmpro_form .pmpro_checkout h2 span.pmpro_checkout-h2-msg a,
-form#pmpro_form .pmpro_checkout h3 span.pmpro_checkout-h3-msg a {
-	text-decoration: underline;
+form#pmpro_form .pmpro_checkout .pmpro_checkout-fields .pmpro_checkout-field {
+	margin-bottom: var(--wp--preset--spacing--20);
 }
-form#pmpro_form .pmpro_checkout-fields {
-	padding: 1.45rem;
+
+form#pmpro_form .pmpro_checkout .pmpro_checkout-field label {
+	display: block;
 }
-form#pmpro_form #pmpro_payment_information_fields .pmpro_checkout-fields {
-	padding-bottom: 0;
-}
+/* TO DO
 form#pmpro_form #pmpro_payment_information_fields .pmpro_checkout-field-payment-request-button {
 	padding: 1.45rem 1.45rem 0 1.45rem;
 }
@@ -285,12 +376,18 @@ form.pmpro_form .pmpro_payment-expiration select {
 	display: block;
 	width: 100%;
 }
+ */
+
 
 /* Membership Account */
 #pmpro_account .pmpro_box {
-	border: none;
-	padding: 0;
-	margin: 0 0 5.8rem;
+	background-color: var(--wp--preset--color--base);
+	border: 1px solid var(--wp--preset--color--grey-2);
+	border-radius: var(--wp--custom--border--radius);
+	box-shadow: var(--wp--custom--shadow);
+	color: var(--wp--preset--color--contrast);
+	margin: var(--wp--preset--spacing--30) 0;
+	padding: var(--wp--preset--spacing--20);
 }
 #pmpro_account #pmpro_account-membership .pmpro_actionlinks,
 #pmpro_account #pmpro_account-invoices .pmpro_actionlinks {
@@ -307,11 +404,39 @@ form.pmpro_form .pmpro_payment-expiration select {
 }
 
 /* Membership Invoice */
-.pmpro_invoice_wrap h3 {
-	margin-top: 0;
+.pmpro_invoice_details > * {
+	margin-bottom: var(--wp--preset--spacing--30);
 }
-.pmpro_invoice_wrap .pmpro_invoice_details p {
-	margin-bottom: 0;
+
+@media (min-width: 782px) {
+	.pmpro_invoice_details {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+	}
+
+	.pmpro_invoice_details .pmpro_invoice-billing-address,
+	.pmpro_invoice_details .pmpro_invoice-payment-method,
+	.pmpro_invoice_details .pmpro_invoice-total {
+		-webkit-box-flex: 3;
+			-ms-flex: 3 1 33%;
+				flex: 3 1 33%;
+	}
+	.pmpro_invoice_details .pmpro_invoice-payment-method,
+	.pmpro_invoice_details .pmpro_invoice-total {
+		padding-left: var(--wp--preset--spacing--20);
+	}
+}
+
+.pmpro_invoice-field-billing_name,
+.pmpro_invoice-field-billing_street,
+.pmpro_invoice-field-billing_country,
+.pmpro_invoice-field-billing_phone {
+	display: block;
+}
+
+.pmpro_invoice-field-billing_city:after {
+	content: ',';
 }
 
 /* Membership Cancel */
@@ -324,25 +449,40 @@ form.pmpro_form .pmpro_payment-expiration select {
 	margin-top: 0;
 }
 
+.pmpro_member_directory-item,
+.pmpro_member_profile {
+	background-color: var(--wp--preset--color--base);
+	border: 1px solid var(--wp--preset--color--grey-2);
+	border-radius: var(--wp--custom--border--radius);
+	box-shadow: var(--wp--custom--shadow);
+	color: var(--wp--preset--color--contrast);
+	margin: var(--wp--preset--spacing--30) 0;
+	padding: var(--wp--preset--spacing--20);
+}
+
+.pmpro_member_directory-item > * {
+	margin: calc( var(--wp--preset--spacing--10) / 2) 0;
+}
+
+.pmpro_member_directory-item .pmpro_member_directory_avatar {
+	float: left;
+	margin-right: var(--wp--preset--spacing--30);
+}
+
+.pmpro_member_directory-item .pmpro_member_directory_avatar a {
+	display: block;
+}
+
+.pmpro_member_profile .pmpro_member_directory_avatar {
+	float: right;
+	margin: 0 0 var(--wp--preset--spacing--20) var(--wp--preset--spacing--20);
+}
 /* Sitewide Sales */
 #pmpro_sws_banner_top span.pmpro_sws_banner-button .pmpro_btn {
 	padding: .45rem 1.45rem;
 }
 
 /* Log In / Change Password / Profiles */
-.pmpro_reset_password_wrap {
-	margin-bottom: 2.9rem;
-}
-.pmpro_login_wrap h2,
-.pmpro_lost_password_wrap h2,
-.pmpro_reset_password_wrap h2,
-.pmpro_member_profile_edit_wrap h2,
-.pmpro_login_wrap h3,
-.pmpro_lost_password_wrap h3,
-.pmpro_reset_password_wrap h3,
-.pmpro_member_profile_edit_wrap h3 {
-	margin-top: 0;
-}
 .pmpro_login_wrap p.pmpro_actions_nav,
 .pmpro_lost_password_wrap p.pmpro_actions_nav,
 .pmpro_reset_password_wrap p.pmpro_actions_nav {
@@ -354,15 +494,39 @@ form.pmpro_form .pmpro_payment-expiration select {
 	border-bottom: 1px solid var(--memberlite-color-borders);
 	padding: 1.45rem;
 }
+
+.pmpro_member_profile_edit_wrap label,
+.pmpro_change_password_wrap label,
+.pmpro_login_wrap label,
+.pmpro_lost_password_wrap label,
+.pmpro_reset_password_wrap label {
+	display: block;
+}
+
+.pmpro_member_profile_edit-field,
+.pmpro_change_password-field,
+#loginform p,
+.pmpro_lost_password-field {
+	margin: 0 0 var(--wp--preset--spacing--20) 0;
+}
+
 .pmpro_member_profile_edit_wrap .input[type=text],
 .pmpro_member_profile_edit_wrap .input[type=email],
 .pmpro_member_profile_edit_wrap .input[type=password] {
 	width: 80%;
 }
+
 .pmpro_member_profile_edit_wrap .pmpro_checkout_box-user .pmpro_member_profile_edit-fields {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-column-gap: 1.45rem;
+	grid-column-gap: var(--wp--preset--spacing--20);
+}
+
+/* Password Strength Meter on Frontend Forms */
+.pmpro_reset_password_wrap form.pmpro_form #pass-strength-result,
+form.pmpro_form .pmpro_change_password-fields #pass-strength-result {
+	display: inline-block;
+	max-width: 150px;
 }
 
 /* Member Log In / Log Out Widget */
@@ -406,4 +570,92 @@ form.pmpro_form .pmpro_payment-expiration select {
 .widget.widget_pmpro_member_login #loginform input[type=password] {
 	max-width: 100%;
 	width: 100%;
+}
+
+/**
+ * Utilities
+ */
+#pass-strength-result {
+	background-color: #eee;
+	border: 1px solid #ddd;
+	color: #23282d;
+	margin: -1px 1px 5px;
+	padding: 3px 5px;
+	text-align: center;
+	width: 25em;
+	box-sizing: border-box;
+	opacity: 0;
+}
+
+#pass-strength-result.short {
+	background-color: #f1adad;
+	border-color: #e35b5b;
+	opacity: 1;
+}
+
+#pass-strength-result.bad {
+	background-color: #fbc5a9;
+	border-color: #f78b53;
+	opacity: 1;
+}
+
+#pass-strength-result.good {
+	background-color: #ffe399;
+	border-color: #ffc733;
+	opacity: 1;
+}
+
+#pass-strength-result.strong {
+	background-color: #c1e1b9;
+	border-color: #83c373;
+	opacity: 1;
+}
+
+.pass1.short, .pass1-text.short {
+	border-color: #e35b5b;
+}
+
+.pass1.bad, .pass1-text.bad {
+	border-color: #f78b53;
+}
+
+.pass1.good, .pass1-text.good {
+	border-color: #ffc733;
+}
+
+.pass1.strong, .pass1-text.strong {
+	border-color: #83c373;
+}
+
+.pw-weak {
+	display: none;
+}
+
+.indicator-hint {
+	padding-top: 8px;
+}
+
+.wp-pwd [type="text"],
+.wp-pwd [type="password"] {
+	margin-bottom: 0;
+	/* Same height as the buttons */
+	min-height: 30px;
+}
+
+/* Hide the Edge "reveal password" native button */
+.wp-pwd input::-ms-reveal {
+	display: none;
+}
+
+.pass1-text,
+.show-password #pass1 {
+	display: none;
+}
+
+.pass1-text::-ms-clear {
+	display: none;
+}
+
+.show-password #pass1-text {
+	display: inline-block;
 }
