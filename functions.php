@@ -32,6 +32,9 @@ function memberblocks_support() {
 
 	// Set up block styles support.
 	add_theme_support( 'wp-block-styles' );
+
+	// Remove core block patterns.
+	remove_theme_support( 'core-block-patterns' );
 }
 add_action( 'after_setup_theme', 'memberblocks_support' );
 
@@ -77,6 +80,7 @@ function memberblocks_get_custom_properties(): string {
 	$body_typography    = $global_styles['typography'] ?? [];
 	$heading_color      = $global_styles['elements']['heading']['color'] ?? [];
 	$heading_typography = $global_styles['elements']['heading']['typography'] ?? [];
+	$buttons 		    = $global_styles['elements']['button'] ?? [];
 
 	if ( $body_color ) {
 		foreach ( $body_color as $key => $value ) {
@@ -131,6 +135,31 @@ function memberblocks_get_custom_properties(): string {
  * Compatibility.
  */
 require_once MEMBERBLOCKS_THEME_DIR . 'inc/compatibility/paid-memberships-pro.php';
+
+/**
+ * Register block pattern categories.
+ *
+ * @since 1.0.0
+ */
+function memberblocks_register_block_pattern_categories() {
+
+	register_block_pattern_category(
+		'page',
+		array(
+			'label'       => __( 'Page', 'memberblocks' ),
+			'description' => __( 'Create a full page with multiple patterns that are grouped together.', 'memberblocks' ),
+		)
+	);
+	register_block_pattern_category(
+		'pricing',
+		array(
+			'label'       => __( 'Pricing', 'memberblocks' ),
+			'description' => __( 'Compare features for your digital products or service plans.', 'memberblocks' ),
+		)
+	);
+
+}
+add_action( 'init', 'memberblocks_register_block_pattern_categories' );
 
 /**
  * Customize the bbp_breadcrumb output.

@@ -8,18 +8,20 @@
 #pmpro_levels .medium-3 {
 	text-align: center;
 }
-#pmpro_levels .row .post {
-	padding: 0 1rem;
+.pmpro_advanced_levels-div .pmpro_level .post {
+	background-color: var(--wp--preset--color--base);
+	border: 1px solid var(--wp--preset--color--grey-1);
+	border-radius: var(--wp--custom--border--radius);
+	box-shadow: var(--wp--custom--shadow);
+	color: var(--wp--preset--color--contrast);
+	margin: var(--wp--preset--spacing--20);
 }
+
 #pmpro_levels .post h2,
 .memberlite_signup h2,
 .pmpro_signup_form h2 {
-	background-color: #FAFAFA;
-	color: var(--memberlite-color-primary);
-	border-top: 1px solid var(--memberlite-color-borders);
-	border-bottom: 1px dotted var(--memberlite-color-borders);
-	padding: .5rem;
-	margin: 0 0 1rem 0;
+	color: var(--wp--preset--color--primary);
+	margin: 0;
 }
 #pmpro_levels .medium-4 .pmpro_btn,
 #pmpro_levels .medium-3 .pmpro_btn,
@@ -49,7 +51,7 @@
 #pmpro_levels.pmpro_levels-2col .pmpro_level-highlight,
 #pmpro_levels.pmpro_levels-3col .pmpro_level-highlight,
 #pmpro_levels.pmpro_levels-4col .pmpro_level-highlight {
-	margin-top: -1.5rem;
+	margin-top: var(--wp--preset--spacing--10) - calc( var(--wp--preset--spacing--10) * 2);
 }
 
 #pmpro_levels_table td,

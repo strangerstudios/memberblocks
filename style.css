@@ -14,12 +14,64 @@ Text Domain: memberblocks
 Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready, wide-blocks, block-styles, accessibility-ready, blog, portfolio, news
 */
 
-table {
-    border-collapse: collapse;
-    border-color: inherit;
-    text-indent: 0
+table,
+.wp-block-table table {
+	background-color: var(--wp--preset--color--base);
+	border-spacing: 0;
+	border-collapse: separate;
+	border-radius: var(--wp--custom--border--radius);
+	border: 1px solid var(--wp--preset--color--grey-3);
+	box-shadow: var(--wp--custom--shadow-alt);
+	margin: var(--wp--preset--spacing--30) 0;
+	overflow: hidden;
+    text-indent: 0;
+	width: 100%;
 }
 
+thead,
+.wp-block-table thead {
+	border: none;
+}
+
+th,
+.wp-block-table th {
+	background-color: var(--wp--preset--color--grey-2);
+	border: none;
+	font-family: var(--wp--custom--heading--font-family);
+	font-weight: var(--wp--custom--heading--font-weight);	
+	padding: calc( var(--wp--preset--spacing--10) / 2 ) var(--wp--preset--spacing--10);
+	text-align: left;
+}
+
+th:not(:first-child),
+.wp-block-table th:not(:first-child) {
+	border-left: 1px solid var(--wp--preset--color--grey-3);
+}
+
+td,
+.wp-block-table td {
+	background-color: var(--wp--preset--color--base);
+	border-top: 1px solid var(--wp--preset--color--grey-3);
+	border-right: none;
+	border-bottom: none;
+	border-left: none;
+	padding: calc( var(--wp--preset--spacing--10) / 2 ) var(--wp--preset--spacing--10);
+}
+
+tr:nth-child(even) td,
+.wp-block-table tr:nth-child(even) td {
+	background-color: var(--wp--preset--color--grey-1);
+}
+
+td:not(:first-child),
+.wp-block-table td:not(:first-child) {
+	border-left: 1px solid var(--wp--preset--color--grey-3);
+}
+
+tfoot tr:first-child th,
+.wp-block-table tfoot tr:first-child td {
+	border-top-width: 3px;
+}
 
 /*
  * Styles for Form Elements
@@ -34,7 +86,7 @@ textarea {
 	background-color: var(--wp--preset--color--base);
 	border: 1px solid var(--wp--preset--color--grey-3);
 	border-radius: calc( var(--wp--custom--border--radius) / 2 );
-	box-shadow: 0 1px 3px 0 rgba(0,0,0,.05),0 1px 2px 0 rgba(0,0,0,.08);
+	box-shadow: var(--wp--custom--shadow-alt);
 	color: var(--wp--preset--color--contrast);
 	font-family: inherit;
 	font-size: 100%;
